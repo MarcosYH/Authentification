@@ -147,7 +147,7 @@ export default function Welcome() {
         </div>
       </nav>{" "}
       <div className=" flex w-full">
-        <div className=" w-1/2 my-10 mx-10 pt-20">
+        <div className=" w-1/2 my-10 mx-20 pt-20">
         <h1 className=" font-bold md:text-6xl sm:text-4xl">Bienvenue à vous !</h1>
         </div>
         <div className="w-1/2">

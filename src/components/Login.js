@@ -52,6 +52,7 @@ function Login() {
           setEmail("");
           setPassword("");
           setLogin(true);
+          setError2("");
           
           window.location.href = "/welcome";
         })
@@ -61,7 +62,7 @@ function Login() {
           if (error.response && error.response.status === 404) {
             setError2("Email ou mot de passe incorrect");
           } else {
-            setError2("Une erreur s'est produite. Veuillez réessayer plus tard.");
+            setError2("Une erreur s'est produite. Vérifier vos informations");
           }
         });
     } else {
@@ -74,11 +75,13 @@ function Login() {
     <>
       <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
         {/*Image login*/}
-        <div className="">
+        <div>
           <img src={imgLog} alt="Sampleimage" />
         </div>
         {/*Boutton face et tweeter*/}
+        
         <div className="md:w-1/3 max-w-sm">
+        <h1 className=" text-5xl font-bold text-center my-14">Connexion</h1>
           <div className="text-center md:text-left">
             <label className="mr-1">Se connecter avec </label>
             <button
