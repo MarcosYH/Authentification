@@ -76,10 +76,10 @@ function Registers() {
 
           if (error.response && error.response.status === 404) {
             setError2(
-              "Une erreur s'est produite. Veuillez réessayer plus tard."
+              "Veuillez entrer un nom ou email valide"
             );
           } else {
-            setError2("Veuillez entrer un nom ou email valide");
+            setError2("Une erreur s'est produite. Veuillez réessayer plus tard.");
           }
         });
     } else {
