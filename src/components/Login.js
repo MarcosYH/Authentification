@@ -59,9 +59,9 @@ function Login() {
           setLoading(false);
   
           if (error.response && error.response.status === 404) {
-            setError2("Une erreur s'est produite. Veuillez réessayer plus tard.");
-          } else {
             setError2("Email ou mot de passe incorrect");
+          } else {
+            setError2("Une erreur s'est produite. Veuillez réessayer plus tard.");
           }
         });
     } else {
