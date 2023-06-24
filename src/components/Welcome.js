@@ -11,30 +11,34 @@ const token = cookies.get("TOKEN");
 export default function Welcome() {
   const [navbar, setNavbar] = useState(false);
   const [user, setUser] = useState(null);
-
   useEffect(() => {
-    // Fetch user info when the component mounts
+    const fetchUserInfo = async () => {
+      try {
+        const authToken = cookies.get("TOKEN");
+        const userEmail = cookies.get("EMAIL");
+    
+        if (!authToken || !userEmail) {
+          throw new Error("Auth token or user email not found");
+        }
+    
+        const response = await axios.get("https://auth-api-adk2.onrender.com/user-info", {
+          headers: {
+            Authorization: authToken,
+          },
+          params: {
+            email: userEmail,
+          },
+        });
+    
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+        // Traitez les erreurs de manière appropriée
+      }
+    };
     fetchUserInfo();
   }, []);
 
-  const fetchUserInfo = () => {
-    const authToken = cookies.get("TOKEN");
-    if (authToken) {
-      axios
-        .get("https://auth-api-adk2.onrender.com/user-info", {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        })
-        .then((response) => {
-          console.log(response);
-          setUser(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
 
   const logout = () => {
     // destroy the cookie

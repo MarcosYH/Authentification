@@ -44,6 +44,7 @@ function Login() {
           cookies.set("TOKEN", result.data.token, {
             path: "/",
           });
+          cookies.set("EMAIL", email, { path: "/" });
   
         //   const userData = {
         //     name: result.data.name,
