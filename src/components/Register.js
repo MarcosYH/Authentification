@@ -72,6 +72,7 @@ function Registers() {
           setPasswordError("");
         })
         .catch((error) => {
+          console.log(error);
           setLoading(false);
 
           if (error.response && error.response.status === 404) {

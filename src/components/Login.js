@@ -39,6 +39,7 @@ function Login() {
   
       axios(configuration)
         .then((result) => {
+          console.log(result);
           setLoading(false);
           cookies.set("TOKEN", result.data.token, {
             path: "/",
@@ -57,6 +58,7 @@ function Login() {
           window.location.href = "/welcome";
         })
         .catch((error) => {
+          console.log(error);
           setLoading(false);
   
           if (error.response && error.response.status === 404) {
@@ -78,8 +80,7 @@ function Login() {
         <div>
           <img src={imgLog} alt="Sampleimage" />
         </div>
-        {/*Boutton face et tweeter*/}
-        
+        {/*Boutton face et tweeter*/}   
         <div className="md:w-1/3 max-w-sm">
         <h1 className=" text-5xl font-bold text-center my-14">Connexion</h1>
           <div className="text-center md:text-left">
