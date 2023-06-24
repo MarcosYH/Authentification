@@ -62,7 +62,7 @@ function Registers() {
         .then((result) => {
           setRegister(true);
           setLoading(false);
-          window.location.href = "/welcome";
+          window.location.href = "/login";
           console.log(result);
           setName("");
           setEmail("");
