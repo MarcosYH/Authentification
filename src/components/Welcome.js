@@ -153,17 +153,17 @@ export default function Welcome() {
       </nav>{" "}
       <div className=" flex w-full">
         <div className=" w-1/2 my-10 mx-20 pt-20">
-        <h1 className=" font-bold md:text-6xl sm:text-4xl">Bienvenue à vous !</h1>
+        {user && (
+          <div>
+            <h1 className=" font-bold md:text-6xl sm:text-4xl">Bienvenue {user.name}!</h1>
+            {/* <p>Email : {user.email}</p> */}
+          </div>
+        )}
         </div>
         <div className="w-1/2">
     <img src={imgwlc} alt="imgwlc" className=" hover:animate-pulse"/>
       </div>
-        {user && (
-          <div>
-            <p>Nom : {user.name}</p>
-            <p>Email : {user.email}</p>
-          </div>
-        )}
+        
       </div>
       
     </div>
