@@ -34,7 +34,7 @@ export default function Creatnewpassword({ match }) {
       setLoading(true);
       const configuration = {
         method: "post",
-        url: `http://localhost:3000/createnewpassword/${token}`,
+        url: `https://auth-api-adk2.onrender.com/createnewpassword/${token}`,
         data: {
           password,
         },
@@ -43,10 +43,11 @@ export default function Creatnewpassword({ match }) {
       axios(configuration)
         .then((result) => {
           setLoading(false);
+          window.location.href = "/login";
+          console.log(result);
           setPassword("");
           setConfirmpassword("");
           setPasswordError("");
-          console.log(result);
         })
         .catch((error) => {
           setLoading(false);

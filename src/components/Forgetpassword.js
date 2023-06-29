@@ -32,7 +32,7 @@ function Forgetpassword() {
        // Effectuer les actions nécessaires (envoi des données, etc.)
        const configuration = {
         method: "post",
-        url: "http://localhost:3000/forgotpassword",
+        url: "https://auth-api-adk2.onrender.com/forgotpassword",
         data: {
           email,
         },
