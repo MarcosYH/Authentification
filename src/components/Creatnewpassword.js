@@ -94,7 +94,7 @@ export default function Creatnewpassword({ match }) {
                   type={newpasswordVisible ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Mots de passe"
+                  placeholder="Mot de passe"
                   required
                   name="password"
                   id="passwordnew"

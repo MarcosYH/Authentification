@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import logo1 from "../assets/logo1.png";
-import imgwlc from "../assets/imgHome.png"
+import imgwlc from "../assets/imgwelcome.png";
+import imgprofil from "../assets/profile.png";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 // get token generated on login
@@ -11,25 +12,34 @@ const token = cookies.get("TOKEN");
 export default function Welcome() {
   const [navbar, setNavbar] = useState(false);
   const [user, setUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+  
+
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
         const authToken = cookies.get("TOKEN");
         const userEmail = cookies.get("EMAIL");
-    
+
         if (!authToken || !userEmail) {
           throw new Error("Auth token or user email not found");
         }
-    
-        const response = await axios.get("https://auth-api-adk2.onrender.com/user-info", {
-          headers: {
-            Authorization: authToken,
-          },
-          params: {
-            email: userEmail,
-          },
-        });
-    
+
+        const response = await axios.get(
+          "https://auth-api-adk2.onrender.com/user-info",
+          {
+            headers: {
+              Authorization: authToken,
+            },
+            params: {
+              email: userEmail,
+            },
+          }
+        );
+
         setUser(response.data);
       } catch (error) {
         console.log(error);
@@ -39,10 +49,9 @@ export default function Welcome() {
     fetchUserInfo();
   }, []);
 
-
   const logout = () => {
     // destroy the cookie
-    cookies.remove("TOKEN",   { path: "/" });
+    cookies.remove("TOKEN", { path: "/" });
     // redirect user to the landing page
     window.location.href = "/";
   };
@@ -104,11 +113,11 @@ export default function Welcome() {
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li>
                   <Link
-                    to="/"
+                    to="/welcome"
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    Home
+                    Accueil
                   </Link>
                 </li>
                 <li>
@@ -117,7 +126,7 @@ export default function Welcome() {
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    About
+                    A propos
                   </Link>
                 </li>
                 <li>
@@ -126,7 +135,7 @@ export default function Welcome() {
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    Contact us
+                    Contacter-nous
                   </Link>
                 </li>
               </ul>
@@ -136,36 +145,81 @@ export default function Welcome() {
                   className="inline-block w-full px-4 py-2 text-center text-white bg-red-600 rounded-md shadow hover:bg-red-800"
                   onClick={() => logout()}
                 >
-                  Logout
+                  Déconnexion
                 </button>
               </div>
             </div>
           </div>
           <div className="hidden space-x-2 md:inline-block">
-            <button
-              className="inline-block w-full px-4 py-2 text-center text-white bg-red-500 rounded-md shadow hover:bg-red-800"
-              onClick={() => logout()}
-            >
-              Logout
-            </button>
+            {user && (
+              <div className="relative inline-block">
+                <div className=" flex items-center mt-2" onClick={toggleMenu}>
+                <img
+                    id="avatarButton"
+                    type="button"
+                    
+                    data-dropdown-toggle="userDropdown"
+                    data-dropdown-placement="bottom-start"
+                    class="w-10 h-10 rounded-full cursor-pointer"
+                    src={imgprofil}
+                    alt="User dropdown"
+                  />
+                  <svg
+                    className=" h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+              
+                </div>
+                 
+                {isOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                    <div className="py-1">
+                      <p className="block px-4 py-2 text-sm text-gray-700">
+                        Nom : {user.name}
+                      </p>
+                      <p className="block px-4 py-2 text-sm text-gray-700">
+                        Email : {user.email}
+                      </p>
+                      </div>
+                      <div className=" text-center my-2">
+                      <button
+                        className="inline-block w-auto px-4 py-2 text-center text-white bg-red-500 rounded-md shadow hover:bg-red-800"
+                        onClick={() => logout()}
+                      >
+                        Déconnexion
+                      </button>
+
+                      </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </nav>{" "}
       <div className=" flex w-full">
         <div className=" w-1/2 my-10 mx-20 pt-20">
-        {user && (
-          <div>
-            <h1 className=" font-bold md:text-6xl sm:text-4xl">Bienvenue {user.name}!</h1>
-            {/* <p>Email : {user.email}</p> */}
-          </div>
-        )}
+          {user && (
+            <div>
+              <h1 className=" font-bold md:text-6xl sm:text-4xl">
+                Bienvenue {user.name}!
+              </h1>
+              {/* <p>Email : {user.email}</p> */}
+            </div>
+          )}
         </div>
-        <div className="w-1/2">
-    <img src={imgwlc} alt="imgwlc" className=" hover:animate-pulse"/>
+        <div className="md:w-1/2 ">
+          <img src={imgwlc} alt="imgwlc" className=" hover:animate-pulse" />
+        </div>
       </div>
-        
-      </div>
-      
     </div>
   );
 }

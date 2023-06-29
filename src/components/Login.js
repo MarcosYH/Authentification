@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import imgLog from "../assets/imgLog1.png";
+import imgLog from "../assets/imgLogin1.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/Login.css";
@@ -76,43 +76,47 @@ function Login() {
 
   return (
     <>
-      <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
+      <section className="h-screen flex flex-col md:flex-row justify-center md:space-y-0 items-center my-2 mx-20 md:my-0">
         {/*Image login*/}
-        <div>
-          <img src={imgLog} alt="Sampleimage" />
+        <div className="">
+          <img src={imgLog} alt="Sampleimage" className=" w-full" />
         </div>
         {/*Boutton face et tweeter*/}   
-        <div className="md:w-1/3 max-w-sm">
-        <h1 className=" text-5xl font-bold text-center my-14">Connexion</h1>
-          <div className="text-center md:text-left">
-            <label className="mr-1">Se connecter avec </label>
-            <button
-              type="button"
-              className="mx-1 h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-[0_4px_9px_-4px_#3b71ca]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="mx-auto h-3.5 w-3.5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+        <div className="md:w-1/2 max-w-lg">
+        <h1 className=" text-5xl font-bold text-center mb-10">Connexion</h1>
+        <div className="my-6 space-y-2">
+              <button
+                aria-label="Se connecter avec Google"
+                type="button"
+                className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
               >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="inlne-block mx-1 h-9 w-9 rounded-full bg-blue-600 hover:bg-blue-700 uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="mx-auto h-3.5 w-3.5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-              </svg>
-            </button>
-          </div>
+                <svg
+                  className="h-6 w-6"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                >
+                  <path
+                    fill="#4285F4"
+                    d="M14.9 8.161c0-.476-.039-.954-.121-1.422h-6.64v2.695h3.802a3.24 3.24 0 01-1.407 2.127v1.75h2.269c1.332-1.22 2.097-3.02 2.097-5.15z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M8.14 15c1.898 0 3.499-.62 4.665-1.69l-2.268-1.749c-.631.427-1.446.669-2.395.669-1.836 0-3.393-1.232-3.952-2.888H1.85v1.803A7.044 7.044 0 008.14 15z"
+                  />
+                  <path
+                    fill="#FBBC04"
+                    d="M4.187 9.342a4.17 4.17 0 010-2.68V4.859H1.849a6.97 6.97 0 000 6.286l2.338-1.803z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M8.14 3.77a3.837 3.837 0 012.7 1.05l2.01-1.999a6.786 6.786 0 00-4.71-1.82 7.042 7.042 0 00-6.29 3.858L4.186 6.66c.556-1.658 2.116-2.89 3.952-2.89z"
+                  />
+                </svg>
+
+                <p>Se connecter avec Google</p>
+              </button>
+            </div>
           <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
             <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
               Où
@@ -137,7 +141,7 @@ function Login() {
                 type={passwordVisible ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Mots de passe"
+                placeholder="Mot de passe"
                 required
                 name="password"
                 id="passwordlogin"
@@ -190,17 +194,16 @@ function Login() {
                 className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
                 href="/forgetpassword"
               >
-                Mots de passe oublié?
+                Mot de passe oublié?
               </a>
             </div>
-            {error && error2 ?(
-              <p className="text-red-600 text-center">{error}</p>
-            ): (<p className="text-red-600 text-center">{error2}</p>)}
+            {error && <p className="text-red-600 text-center">{error}</p>}
+              {error2 && <p className="text-red-600 text-center">{error2}</p>}
             
             {/*Boutton conexion*/}
             <div className=" flex justify-center">
               <button
-                className="mt-4 bg-blue-600 hover:bg-blue-900 w-64 px-4 py-2 text-white uppercase rounded-md tracking-wider flex justify-center items-center font-bold text-sm"
+                className=" my-4 bg-blue-600 hover:bg-blue-900 w-64 h-10 md:w-80 px-4 py-2 text-white uppercase rounded-md tracking-wider flex justify-center items-center font-bold text-sm"
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
               >

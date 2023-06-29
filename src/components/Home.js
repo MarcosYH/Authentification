@@ -66,7 +66,7 @@ function Home() {
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    Home
+                   Accueil
                   </Link>
                 </li>
                 <li>
@@ -75,7 +75,7 @@ function Home() {
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    About
+                  A propos
                   </Link>
                 </li>
                 <li>
@@ -84,7 +84,7 @@ function Home() {
                     className="text-black hover:text-indigo-400 font-bold"
                     aria-current="page"
                   >
-                    Contact us
+                     Contacter-nous
                   </Link>
                 </li>
               </ul>
@@ -95,14 +95,14 @@ function Home() {
                   className="inline-block w-full px-4 py-2 text-center text-white bg-blue-600 rounded-md shadow hover:bg-blue-800"
                   aria-current="page"
                 >
-                  Login
+                  Connexion
                 </Link>
                 <Link
                   to="/register"
                   className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                   aria-current="page"
                 >
-                  Register
+                  S'inscrire
                 </Link>
               </div>
             </div>
@@ -113,14 +113,14 @@ function Home() {
               className="px-4 py-2 text-white bg-blue-600 rounded-md shadow hover:bg-blue-800"
               aria-current="page"
             >
-              Login
+              Connexion
             </Link>
             <Link
               to="/register"
               className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
               aria-current="page"
             >
-              Register
+              S'inscrire
             </Link>
           </div>
         </div>

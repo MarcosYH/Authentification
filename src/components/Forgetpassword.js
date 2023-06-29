@@ -119,7 +119,7 @@ function Forgetpassword() {
               Vous avez déjà un compte ?{" "}
               <span>
                 <Link className="text-blue-600 hover:underline" to="/login">
-                  Log in
+                  Se connecter
                 </Link>
               </span>
             </div>
