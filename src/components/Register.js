@@ -73,9 +73,9 @@ function Registers() {
         })
         .catch((error) => {
           console.log(error);
-          setLoading(false);
+          setLoading(false);  
 
-          if (error.response && error.response.status === 404) {
+          if (error.response && error.response.status === 404) {  
             setError2(
               "Veuillez entrer un nom ou email valide"
             );
@@ -87,36 +87,6 @@ function Registers() {
       setError("Veuillez remplir tous les champs"); // Afficher l'erreur si des champs sont vides
     }
   };
-
-  // const register = () => {
-  //     console.log('register')
-  //     fetch("https://talkative-xqnz.onrender.com/auth/register", {
-  //         method: 'POST',
-  //         body: JSON.stringify({
-  //             "account":
-  //             {
-  //             email: "eliot@dev.com",
-  //             password: "Pas55word@",
-  //             },
-  //             "profile":
-  //             {
-  //             username: "elidev",
-  //             firstname: "Eliot",
-  //             lastname: "Fagnon",
-  //             profilePic:""
-  //             }
-
-  //         }),
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         }
-  //     })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //     })
-  //     .catch((err) => { console.log('err', err); });
-  // }
 
   return (
     <>

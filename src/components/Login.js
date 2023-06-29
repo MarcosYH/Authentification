@@ -188,7 +188,7 @@ function Login() {
             <div className="mt-4 flex justify-end font-semibold text-sm">
               <a
                 className="text-blue-600 hover:text-blue-700 hover:underline hover:underline-offset-4"
-                href="/#"
+                href="/forgetpassword"
               >
                 Mots de passe oublié?
               </a>
