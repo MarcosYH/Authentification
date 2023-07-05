@@ -80,48 +80,10 @@ function Login() {
         {/*Image login*/}
         <div className="">
           <img src={imgLog} alt="Sampleimage" className=" w-full" />
-        </div>
-        {/*Boutton face et tweeter*/}   
+        </div>  
         <div className="md:w-1/2 max-w-lg">
         <h1 className=" text-5xl font-bold text-center mb-10">Connexion</h1>
-        <div className="my-6 space-y-2">
-              <button
-                aria-label="Se connecter avec Google"
-                type="button"
-                className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-              >
-                <svg
-                  className="h-6 w-6"
-                  viewBox="0 0 16 16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                >
-                  <path
-                    fill="#4285F4"
-                    d="M14.9 8.161c0-.476-.039-.954-.121-1.422h-6.64v2.695h3.802a3.24 3.24 0 01-1.407 2.127v1.75h2.269c1.332-1.22 2.097-3.02 2.097-5.15z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M8.14 15c1.898 0 3.499-.62 4.665-1.69l-2.268-1.749c-.631.427-1.446.669-2.395.669-1.836 0-3.393-1.232-3.952-2.888H1.85v1.803A7.044 7.044 0 008.14 15z"
-                  />
-                  <path
-                    fill="#FBBC04"
-                    d="M4.187 9.342a4.17 4.17 0 010-2.68V4.859H1.849a6.97 6.97 0 000 6.286l2.338-1.803z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M8.14 3.77a3.837 3.837 0 012.7 1.05l2.01-1.999a6.786 6.786 0 00-4.71-1.82 7.042 7.042 0 00-6.29 3.858L4.186 6.66c.556-1.658 2.116-2.89 3.952-2.89z"
-                  />
-                </svg>
 
-                <p>Se connecter avec Google</p>
-              </button>
-            </div>
-          <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-            <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
-              Où
-            </p>
-          </div>
 
           {/* Formulaire de login */}
           <form onSubmit={(e) => handleSubmit(e)}>
@@ -248,6 +210,46 @@ function Login() {
               S'inscrire
             </Link>
           </div>
+          <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+            <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
+              Où
+            </p>
+          </div>
+          {/*Boutton google*/}
+          <div className="my-6 space-y-2">
+              <button
+                aria-label="Se connecter avec Google"
+                type="button"
+                className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+              >
+                <svg
+                  className="h-6 w-6"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                >
+                  <path
+                    fill="#4285F4"
+                    d="M14.9 8.161c0-.476-.039-.954-.121-1.422h-6.64v2.695h3.802a3.24 3.24 0 01-1.407 2.127v1.75h2.269c1.332-1.22 2.097-3.02 2.097-5.15z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M8.14 15c1.898 0 3.499-.62 4.665-1.69l-2.268-1.749c-.631.427-1.446.669-2.395.669-1.836 0-3.393-1.232-3.952-2.888H1.85v1.803A7.044 7.044 0 008.14 15z"
+                  />
+                  <path
+                    fill="#FBBC04"
+                    d="M4.187 9.342a4.17 4.17 0 010-2.68V4.859H1.849a6.97 6.97 0 000 6.286l2.338-1.803z"
+                  />
+                  <path
+                    fill="#EA4335"
+                    d="M8.14 3.77a3.837 3.837 0 012.7 1.05l2.01-1.999a6.786 6.786 0 00-4.71-1.82 7.042 7.042 0 00-6.29 3.858L4.186 6.66c.556-1.658 2.116-2.89 3.952-2.89z"
+                  />
+                </svg>
+
+                <p>Se connecter avec Google</p>
+              </button>
+            </div>
+          
         </div>
       </section>
     </>
