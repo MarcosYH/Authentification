@@ -6,6 +6,8 @@ import imgwlc from "../assets/imgwelcome.png";
 import imgprofil from "../assets/profile.png";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
+
+
 // get token generated on login
 // eslint-disable-next-line no-unused-vars
 const token = cookies.get("TOKEN");
@@ -17,6 +19,21 @@ export default function Welcome() {
     setIsOpen(!isOpen);
   };
   
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Vous pouvez effectuer ici le traitement d'envoi de la photo
+    // vers votre serveur
+
+    // Réinitialiser le champ de sélection de fichier
+    setSelectedFile(null);
+  };
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -161,7 +178,7 @@ export default function Welcome() {
                     
                     data-dropdown-toggle="userDropdown"
                     data-dropdown-placement="bottom-start"
-                    class="w-10 h-10 rounded-full cursor-pointer"
+                    className="w-10 h-10 rounded-full cursor-pointer"
                     src={imgprofil}
                     alt="User dropdown"
                   />
@@ -181,7 +198,33 @@ export default function Welcome() {
                 </div>
                  
                 {isOpen && (
+                  
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                            <div className="max-w-md mx-auto">
+      <div className="mb-4">
+        <img
+          src={selectedFile ? URL.createObjectURL(selectedFile) : 'placeholder.png'}
+          alt="PhotOj"
+          className="w-40 h-40 rounded-full mx-auto mb-4"
+        />
+        <form onSubmit={handleSubmit}>
+          <div className="flex items-center justify-center">
+        
+            <label type="button" htmlFor="profilePhoto" className="cursor-pointer inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-400 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150 mt-2 ml-3">
+              Choisir une photo
+            </label>
+            <input
+              type="file"
+              id="profilePhoto"
+              accept="image/*"
+              onChange={handleFileChange}
+              className=" hidden"
+            />
+          </div>
+        </form>
+      </div>
+      
+    </div>
                     <div className="py-1">
                       <p className="block px-4 py-2 text-sm text-gray-700">
                         Nom : {user.name}
@@ -220,6 +263,7 @@ export default function Welcome() {
         <div className="md:w-1/2 ">
           <img src={imgwlc} alt="imgwlc" className=" hover:animate-pulse" />
         </div>
+
       </div>
     </div>
   );

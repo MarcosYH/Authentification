@@ -49,6 +49,9 @@ function Forgetpassword() {
         .catch((error) => {
           console.log(error);
           setLoading(false);
+          if (error.response.status === 404) {
+            setEmailError("Veuillez entrer le mail relié à votre compte");
+          } 
             });
        };
   return (
