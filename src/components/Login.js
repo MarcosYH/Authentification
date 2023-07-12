@@ -72,7 +72,20 @@ function Login() {
       setError("Veuillez remplir tous les champs");
     }
   };
+
+  // function navigate(url){
+  //   window.location.href = url;
+  // }
   
+  const handleGoogleLogin = async () => {
+    try {
+      const response = await axios.post('https://auth-api-adk2.onrender.com/auth/google');
+      const { url } = response.data;
+      window.location.href = url;
+    } catch (error) {
+      console.error('Failed to initiate Google login:', error);
+    }
+  };
 
   return (
     <>
@@ -221,6 +234,7 @@ function Login() {
                 aria-label="Se connecter avec Google"
                 type="button"
                 className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                onClick={handleGoogleLogin}
               >
                 <svg
                   className="h-6 w-6"

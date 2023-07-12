@@ -50,7 +50,7 @@ function Registers() {
       // Effectuer les actions nécessaires (envoi des données, etc.)
       const configuration = {
         method: "post",
-        url: "https://auth-api-adk2.onrender.com/register",
+        url: "http://localhost:3000/register",
         data: {
           name,
           email,
@@ -87,6 +87,17 @@ function Registers() {
       setError("Veuillez remplir tous les champs"); // Afficher l'erreur si des champs sont vides
     }
   };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const response = await axios.post('https://auth-api-adk2.onrender.com/auth/google');
+      const { url } = response.data;
+      window.location.href = url;
+    } catch (error) {
+      console.error('Failed to initiate Google login:', error);
+    }
+  };
+
 
   return (
     <>
@@ -272,6 +283,7 @@ function Registers() {
                 aria-label="Se connecter avec Google"
                 type="button"
                 className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
+                onClick={handleGoogleLogin}
               >
                 <svg
                   className="h-6 w-6"
