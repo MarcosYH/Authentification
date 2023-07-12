@@ -50,7 +50,7 @@ function Registers() {
       // Effectuer les actions nécessaires (envoi des données, etc.)
       const configuration = {
         method: "post",
-        url: "http://localhost:3000/register",
+        url: "https://auth-api-adk2.onrender.com/register",
         data: {
           name,
           email,
