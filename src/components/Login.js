@@ -79,7 +79,7 @@ function Login() {
   
   const handleGoogleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/auth/google');
+      const response = await axios.post('https://auth-api-adk2.onrender.com/auth/google');
       const { url } = response.data;
       window.location.href = url;
     } catch (error) {
