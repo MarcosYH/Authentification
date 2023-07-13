@@ -39,10 +39,9 @@ export default function Welcome() {
     const fetchUserInfo = async () => {
       try {
         const authToken = cookies.get("TOKEN");
-        const userEmail = cookies.get("EMAIL");
 
-        if (!authToken || !userEmail) {
-          throw new Error("Auth token or user email not found");
+        if (!authToken) {
+          throw new Error("Auth token not found");
         }
 
         const response = await axios.get(
