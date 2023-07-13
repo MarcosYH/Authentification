@@ -13,7 +13,7 @@ import Creatnewpassword from "./components/Creatnewpassword";
 
 // import User from "./components/User";
 const cookies = new Cookies();
-const App = () => {
+const App = () => { 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -24,6 +24,7 @@ const App = () => {
       <Route path="/check_email" element={<Verify />} />
       <Route path="/createnewpassword/:token" element={<Creatnewpassword/>} />
       <Route path="/welcome" element={<Protectedwelcome />} />
+      <Route path="/welcome/:token" element={<Welcome/>} />
       {/* <Route path="/welcome/user" element={<User />} /> */}
     </Routes>
   );

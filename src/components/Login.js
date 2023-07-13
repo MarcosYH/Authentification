@@ -78,20 +78,15 @@ function Login() {
   // }
   
   const handleGoogleLogin = async () => {
-    const response = await axios.post('https://auth-api-adk2.onrender.com/auth/google');
-  
-    if (response.status === 200) {
+    try {
+      const response = await axios.post('http://localhost:3000/auth/google');
       const { url } = response.data;
       window.location.href = url;
-  
-      const tokenResponse = await axios.get('https://auth-api-adk2.onrender.com/auth/google/callback');
-  
-      localStorage.setItem('token', tokenResponse.data.token);
-    } else {
-      console.error('Failed to initiate Google login:', response.status);
+    } catch (error) {
+      console.error('Failed to initiate Google login:', error);
     }
   };
-  
+
   return (
     <>
       <section className="h-screen flex flex-col md:flex-row justify-center md:space-y-0 items-center my-2 mx-20 md:my-0">
