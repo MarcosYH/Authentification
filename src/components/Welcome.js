@@ -52,7 +52,7 @@ export default function Welcome() {
               Authorization: authToken,
             },
             params: {
-              email: userEmail,
+              token: authToken,
             },
           }
         );
